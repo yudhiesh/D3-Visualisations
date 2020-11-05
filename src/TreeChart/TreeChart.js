@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, memo, useMemo } from "react";
 import { select, hierarchy, tree, linkHorizontal } from "d3";
 import useResizeObserver from "../useResizeObserver";
 
@@ -22,12 +22,27 @@ const TreeChart = ({ data }) => {
       }
     ]
   };
+  const setData = data => {
+    data.forEach(d =>
+      d.agroforestry === 1
+        ? agroforestry.children[0].children.push(d)
+        : agroforestry.children[1].children.push(d)
+    );
+  };
 
-  data.forEach(d =>
-    d.agroforestry === 1
-      ? agroforestry.children[0].children.push(d)
-      : agroforestry.children[1].children.push(d)
-  );
+  const setOrganization = data => {
+    const org = [];
+    const orgCleaned = [];
+
+    // filters the empty elements out
+    data.forEach(d =>
+      d.partner_organization === "[]" ? null : org.push(d.partner_organization)
+    );
+    org.forEach(o => orgCleaned.push(o.slice(1, o.length - 1)));
+    console.log(orgCleaned[27]);
+  };
+
+  setOrganization(data);
   function usePrevious(value) {
     const ref = useRef();
     useEffect(() => {
@@ -44,6 +59,7 @@ const TreeChart = ({ data }) => {
   const width = 954;
 
   useEffect(() => {
+    setData(data);
     const svg = select(svgRef.current);
     if (!dimensions) return;
     const root = hierarchy(agroforestry);
@@ -99,12 +115,18 @@ const TreeChart = ({ data }) => {
       .data(root.descendants())
       .join("text")
       .attr("class", "label")
-      .text(node => (node.children ? node.data.name : node.data.locations))
+      .text(
+        node =>
+          node.children
+            ? node.data.name
+            : node.data.partner_organization && node.data.partner_organization
+        // : node.data.partner_organization && node.data.partner_organization
+      )
       .attr("text-anchor", node => (node.children ? "middle" : "back"))
       .attr("font-size", node => (node.children ? 15 : 12))
       .attr("x", node => (node.children ? node.y : node.y + 5))
       .attr("y", node => (node.children ? node.x - 12 : node.x + 3));
-  }, [data, agroforestry, dimensions, previouslyRenderedData]);
+  }, [setData, data, agroforestry, dimensions, previouslyRenderedData]);
   return (
     <div ref={wrapperRef} style={styles.root}>
       <svg ref={svgRef}></svg>
@@ -112,4 +134,4 @@ const TreeChart = ({ data }) => {
   );
 };
 
-export default TreeChart;
+export default memo(TreeChart);
