@@ -2,25 +2,16 @@ import React, { useRef, useEffect, memo, useMemo } from "react";
 import { select, hierarchy, tree, linkHorizontal } from "d3";
 import useResizeObserver from "../useResizeObserver";
 
-import styles from "../App.css";
+import styles from "../TreeChart/OrganizationTree.module.css";
 
-const TreeChart = ({ data }) => {
+const OrganizationTreeChart = ({ data }) => {
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
 
-  const agroforestry = {
-    name: "Intiative 2020",
-    children: [
-      {
-        name: "Agroforestry",
-        children: []
-      },
-      {
-        name: "No Agroforestry",
-        children: []
-      }
-    ]
+  const partnerOrganization = {
+    name: "Partner Organizations",
+    children: []
   };
 
   function usePrevious(value) {
@@ -30,26 +21,26 @@ const TreeChart = ({ data }) => {
     });
     return ref.current;
   }
+  const partnerOrganizationOnly = data => {
+    data.forEach(d =>
+      d.partner_organization.length > 0
+        ? partnerOrganization.children.push(d)
+        : null
+    );
+  };
+
   // to flip from horizontal to vertical or vice versa
   // swap values height, width & x , y
   // swap linkHorizontal and linkVertical
-  const previouslyRenderedData = usePrevious(agroforestry);
+  const previouslyRenderedData = usePrevious(partnerOrganization);
 
   const width = 954;
-  const setData = data => {
-    data &&
-      data.forEach(d =>
-        d.agroforestry === 1
-          ? agroforestry.children[0].children.push(d)
-          : agroforestry.children[1].children.push(d)
-      );
-  };
 
   useEffect(() => {
-    setData(data);
+    partnerOrganizationOnly(data);
     const svg = select(svgRef.current);
     if (!dimensions) return;
-    const root = hierarchy(agroforestry);
+    const root = hierarchy(partnerOrganization);
     root.dx = 12;
     root.dy = width / (root.height + 1);
     tree().nodeSize([root.dx, root.dy])(root);
@@ -102,17 +93,23 @@ const TreeChart = ({ data }) => {
       .data(root.descendants())
       .join("text")
       .attr("class", "label")
-      .text(node => (node.children ? node.data.name : node.data.locations))
+      .text(
+        node =>
+          node.children
+            ? node.data.name
+            : node.data.partner_organization && node.data.partner_organization
+        // : node.data.partner_organization && node.data.partner_organization
+      )
       .attr("text-anchor", node => (node.children ? "middle" : "back"))
       .attr("font-size", node => (node.children ? 15 : 12))
       .attr("x", node => (node.children ? node.y : node.y + 5))
       .attr("y", node => (node.children ? node.x - 12 : node.x + 3));
-  }, [data, agroforestry, dimensions, previouslyRenderedData]);
+  }, [data, partnerOrganization, dimensions, previouslyRenderedData]);
   return (
-    <div className={styles.root} ref={wrapperRef}>
+    <div className={styles.root2} ref={wrapperRef}>
       <svg ref={svgRef}></svg>
     </div>
   );
 };
 
-export default memo(TreeChart);
+export default memo(OrganizationTreeChart);
