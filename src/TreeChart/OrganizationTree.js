@@ -11,22 +11,53 @@ const OrganizationTreeChart = ({ data }) => {
 
   const partnerOrganization = {
     name: "Partner Organizations",
-    children: []
+    children: [
+      {
+        name: "Partner",
+        children: []
+      },
+      {
+        name: "No Partner",
+        children: []
+      }
+    ]
   };
 
-  function usePrevious(value) {
+  const usePrevious = value => {
     const ref = useRef();
     useEffect(() => {
       ref.current = value;
     });
     return ref.current;
-  }
-  const partnerOrganizationOnly = data => {
+  };
+
+  const partnerOrganizationMutation = data => {
+    const uniqueOrgs = uniquePartnerList(data);
+
+    // add the locations with no partnerOrganizations to the no partner obj
     data.forEach(d =>
       d.partner_organization.length > 0
-        ? partnerOrganization.children.push(d)
+        ? null
+        : partnerOrganization.children[1].children.push(d.locations)
+    );
+    // add each org and a list of children to the main partnerOrganization obj
+    uniqueOrgs.forEach(o =>
+      partnerOrganization.children[0].children.push({ name: o, children: [] })
+    );
+  };
+
+  const uniquePartnerList = data => {
+    const orgList = [];
+    data.forEach(d =>
+      d.partner_organization.length > 0
+        ? orgList.push(d.partner_organization)
         : null
     );
+    // flatten a nested array into a single array
+    const mergedArray = [].concat(...orgList);
+    // get the unique values from the array
+    const uniqueOrgs = [...new Set(mergedArray)];
+    return uniqueOrgs;
   };
 
   // to flip from horizontal to vertical or vice versa
@@ -37,7 +68,10 @@ const OrganizationTreeChart = ({ data }) => {
   const width = 954;
 
   useEffect(() => {
-    partnerOrganizationOnly(data);
+    partnerOrganizationMutation(data);
+    console.log(partnerOrganization);
+    // const listOfOrg = partnerOrganizationList(data);
+    // console.log(listOfOrg);
     const svg = select(svgRef.current);
     if (!dimensions) return;
     const root = hierarchy(partnerOrganization);
@@ -93,12 +127,10 @@ const OrganizationTreeChart = ({ data }) => {
       .data(root.descendants())
       .join("text")
       .attr("class", "label")
-      .text(
-        node =>
-          node.children
-            ? node.data.name
-            : node.data.partner_organization && node.data.partner_organization
-        // : node.data.partner_organization && node.data.partner_organization
+      .text(node =>
+        node.children
+          ? node.data.name
+          : node.data.partner_organization && node.data.partner_organization
       )
       .attr("text-anchor", node => (node.children ? "middle" : "back"))
       .attr("font-size", node => (node.children ? 15 : 12))
