@@ -4,10 +4,20 @@ import useResizeObserver from "../useResizeObserver";
 
 import styles from "../TreeChart/OrganizationTree.module.css";
 
+const width = 954;
+
 const OrganizationTreeChart = ({ data }) => {
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
+
+  const usePrevious = value => {
+    const ref = useRef();
+    useEffect(() => {
+      ref.current = value;
+    });
+    return ref.current;
+  };
 
   const partnerOrganization = {
     name: "Partner Organizations",
@@ -22,15 +32,6 @@ const OrganizationTreeChart = ({ data }) => {
       }
     ]
   };
-
-  const usePrevious = value => {
-    const ref = useRef();
-    useEffect(() => {
-      ref.current = value;
-    });
-    return ref.current;
-  };
-
   const partnerOrganizationMutation = data => {
     const uniqueOrgs = uniquePartnerList(data);
 
@@ -44,6 +45,8 @@ const OrganizationTreeChart = ({ data }) => {
     uniqueOrgs.forEach(o =>
       partnerOrganization.children[0].children.push({ name: o, children: [] })
     );
+    const uniqueOrgsList = partnerOrganization.children[0].children;
+    console.log(uniqueOrgsList);
   };
 
   const uniquePartnerList = data => {
@@ -63,21 +66,21 @@ const OrganizationTreeChart = ({ data }) => {
   // to flip from horizontal to vertical or vice versa
   // swap values height, width & x , y
   // swap linkHorizontal and linkVertical
-  const previouslyRenderedData = usePrevious(partnerOrganization);
 
-  const width = 954;
+  const previouslyRenderedData = usePrevious(partnerOrganization);
 
   useEffect(() => {
     partnerOrganizationMutation(data);
-    console.log(partnerOrganization);
-    // const listOfOrg = partnerOrganizationList(data);
-    // console.log(listOfOrg);
+
     const svg = select(svgRef.current);
+
     if (!dimensions) return;
+
     const root = hierarchy(partnerOrganization);
     root.dx = 12;
     root.dy = width / (root.height + 1);
     tree().nodeSize([root.dx, root.dy])(root);
+
     const linkGenerator = linkHorizontal()
       .x(node => node.y)
       .y(node => node.x);
