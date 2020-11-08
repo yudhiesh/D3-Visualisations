@@ -33,25 +33,34 @@ const OrganizationTreeChart = ({ data }) => {
     ]
   };
   const partnerOrganizationMutation = data => {
-    const orgList = [];
-    const orgPartnerIndex = [];
     const uniqueOrgs = uniquePartnerList(data);
 
-    // add the locations with no partnerOrganizations to the no partner obj
+    // add the country with no partnerOrganizations to the no partner obj
+    // swap country for locations if looking for locations
     data.forEach(d =>
       d.partner_organization.length > 0
         ? null
-        : partnerOrganization.children[1].children.push(d.locations)
+        : partnerOrganization.children[1].children.push(d.country)
     );
     // add each org and a list of children to the main partnerOrganization obj
     uniqueOrgs.forEach(o =>
       partnerOrganization.children[0].children.push({ name: o, children: [] })
     );
     const uniqueOrgsList = partnerOrganization.children[0].children;
-    data.forEach(d => orgList.push(d.partner_organization));
-    orgList.forEach((o, index) =>
-      o.length > 0 ? orgPartnerIndex.push(index) : null
-    );
+
+    for (let i = 0; i < data.length; i++) {
+      const partOrg = data[i]["partner_organization"];
+      // const locations = data[i]["locations"];
+      const country = data[i]["country"];
+      for (let i = 0; i < partOrg.length; i++) {
+        const eachPart = partOrg[i];
+        for (let i = 0; i < uniqueOrgsList.length; i++) {
+          if (eachPart === uniqueOrgsList[i]["name"]) {
+            uniqueOrgsList[i]["children"].push(country);
+          }
+        }
+      }
+    }
   };
 
   const uniquePartnerList = data => {
@@ -76,6 +85,7 @@ const OrganizationTreeChart = ({ data }) => {
 
   useEffect(() => {
     partnerOrganizationMutation(data);
+    console.log(partnerOrganization);
 
     const svg = select(svgRef.current);
 
