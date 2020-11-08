@@ -1,5 +1,13 @@
 import React, { useRef, useEffect, memo, useMemo } from "react";
-import { select, hierarchy, tree, linkHorizontal } from "d3";
+import {
+  select,
+  hierarchy,
+  tree,
+  linkHorizontal,
+  ascending,
+  descending,
+  cluster
+} from "d3";
 import useResizeObserver from "../useResizeObserver";
 
 import styles from "../TreeChart/OrganizationTree.module.css";
@@ -40,23 +48,28 @@ const OrganizationTreeChart = ({ data }) => {
     data.forEach(d =>
       d.partner_organization.length > 0
         ? null
-        : partnerOrganization.children[1].children.push(d.country)
+        : partnerOrganization.children[1].children.push({
+            locations: d.locations
+          })
     );
     // add each org and a list of children to the main partnerOrganization obj
     uniqueOrgs.forEach(o =>
       partnerOrganization.children[0].children.push({ name: o, children: [] })
     );
+
     const uniqueOrgsList = partnerOrganization.children[0].children;
 
+    // Loops over the data
+    // finds the organization and appends the country to the uniqueOrgsList
     for (let i = 0; i < data.length; i++) {
       const partOrg = data[i]["partner_organization"];
-      // const locations = data[i]["locations"];
-      const country = data[i]["country"];
+      const locations = data[i]["locations"];
+      // const country = data[i]["country"];
       for (let i = 0; i < partOrg.length; i++) {
         const eachPart = partOrg[i];
         for (let i = 0; i < uniqueOrgsList.length; i++) {
           if (eachPart === uniqueOrgsList[i]["name"]) {
-            uniqueOrgsList[i]["children"].push(country);
+            uniqueOrgsList[i]["children"].push({ locations: locations });
           }
         }
       }
@@ -85,16 +98,19 @@ const OrganizationTreeChart = ({ data }) => {
 
   useEffect(() => {
     partnerOrganizationMutation(data);
-    console.log(partnerOrganization);
 
     const svg = select(svgRef.current);
 
     if (!dimensions) return;
 
-    const root = hierarchy(partnerOrganization);
+    const root = hierarchy(partnerOrganization).sort(
+      (a, b) =>
+        descending(a.height, b.height) || ascending(a.data.name, b.data.name)
+    );
+
     root.dx = 12;
     root.dy = width / (root.height + 1);
-    tree().nodeSize([root.dx, root.dy])(root);
+    cluster().nodeSize([root.dx, root.dy])(root);
 
     const linkGenerator = linkHorizontal()
       .x(node => node.y)
@@ -103,11 +119,14 @@ const OrganizationTreeChart = ({ data }) => {
     svg
       .selectAll(".node")
       .data(root.descendants())
-      .join(enter => enter.append("circle").attr("opacity", 0))
+      .join(enter =>
+        enter.append("circle").attr("fill", d => (d.children ? "#555" : "#999"))
+      )
+      .attr("r", 2.5)
       .attr("class", "node")
       .attr("cx", node => node.y)
       .attr("cy", node => node.x)
-      .attr("r", 4)
+      .attr("r", 2.5)
       .transition()
       .duration(500)
       .delay(node => node.depth * 300)
@@ -115,7 +134,7 @@ const OrganizationTreeChart = ({ data }) => {
 
     // links
     const enteringAndUpdatingLinks = svg
-      .selectAll(".link")
+      .selectAll(".path")
       .data(root.links())
       .join("path")
       .attr("class", "link")
@@ -126,7 +145,9 @@ const OrganizationTreeChart = ({ data }) => {
       })
       .attr("stroke", "black")
       .attr("fill", "none")
-      .attr("opacity", 1);
+      .attr("stroke-opacity", 0.5)
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-width", 0.4);
 
     if (data !== previouslyRenderedData) {
       enteringAndUpdatingLinks
@@ -136,24 +157,22 @@ const OrganizationTreeChart = ({ data }) => {
         .transition()
         .duration(500)
         .delay(link => link.source.depth * 500)
-        .attr("stroke-dashoffset", 0);
+        .attr("stroke-dashoffset", 5);
     }
 
     //labels
     svg
-      .selectAll(".label")
+      .selectAll(".text")
       .data(root.descendants())
       .join("text")
-      .attr("class", "label")
-      .text(node =>
-        node.children
-          ? node.data.name
-          : node.data.partner_organization && node.data.partner_organization
-      )
-      .attr("text-anchor", node => (node.children ? "middle" : "back"))
-      .attr("font-size", node => (node.children ? 15 : 12))
-      .attr("x", node => (node.children ? node.y : node.y + 5))
-      .attr("y", node => (node.children ? node.x - 12 : node.x + 3));
+      .attr("x", d => d.y)
+      .attr("y", d => d.x)
+      .attr("dy", "0.31em")
+      .attr("dx", d => (d.children ? -6 : 6))
+      .text(d => (d.children ? d.data.name : d.data.locations))
+      .attr("text-anchor", d => (d.children ? "end" : "start"))
+      .attr("font-size", d => (d.children ? 15 : 13))
+      .attr("font-family", "sans-serif");
   }, [data, partnerOrganization, dimensions, previouslyRenderedData]);
   return (
     <div className={styles.root2} ref={wrapperRef}>
@@ -163,3 +182,7 @@ const OrganizationTreeChart = ({ data }) => {
 };
 
 export default memo(OrganizationTreeChart);
+
+// export default memo(OrganizationTreeChart);
+
+// export default memo(OrganizationTreeChart);
