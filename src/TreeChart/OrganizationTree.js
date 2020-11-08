@@ -33,6 +33,8 @@ const OrganizationTreeChart = ({ data }) => {
     ]
   };
   const partnerOrganizationMutation = data => {
+    const orgList = [];
+    const orgPartnerIndex = [];
     const uniqueOrgs = uniquePartnerList(data);
 
     // add the locations with no partnerOrganizations to the no partner obj
@@ -46,7 +48,10 @@ const OrganizationTreeChart = ({ data }) => {
       partnerOrganization.children[0].children.push({ name: o, children: [] })
     );
     const uniqueOrgsList = partnerOrganization.children[0].children;
-    console.log(uniqueOrgsList);
+    data.forEach(d => orgList.push(d.partner_organization));
+    orgList.forEach((o, index) =>
+      o.length > 0 ? orgPartnerIndex.push(index) : null
+    );
   };
 
   const uniquePartnerList = data => {
