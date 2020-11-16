@@ -1,12 +1,7 @@
-.root2 {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  align-self: flex-end;
-  align-items: stretch;
-  justify-content: center;
+.root3 {
+  display: block;
   height: 100vh;
-  padding: 250px 150px;
-  text-align: center;
-  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0 auto;
 }

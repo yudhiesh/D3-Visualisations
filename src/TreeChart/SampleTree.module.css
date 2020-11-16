@@ -1,0 +1,13 @@
+.root3 {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  align-self: flex-end;
+  align-items: stretch;
+  justify-content: center;
+  height: 300vh;
+  margin-top: 100px;
+  padding: 1000px 150px;
+  text-align: center;
+  box-sizing: border-box;
+}

@@ -16,11 +16,9 @@ svg {
   box-sizing: border-box;
 }
 
-button {
+select {
   position: absolute;
-  top: 150px;
-  left: 10px;
-  width: 100px;
-  border: 1px solid black;
-  margin: 0 auto 5px;
+  top: 0;
+  left: 0;
+  margin: 10px;
 }
