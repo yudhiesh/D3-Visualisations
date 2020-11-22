@@ -1,8 +1,7 @@
-import React, { useRef, useEffect, memo, useMemo } from "react";
+import React, { useState, useRef, useEffect, memo, useMemo } from "react";
 import { select, hierarchy, tree, linkHorizontal } from "d3";
-import useResizeObserver from "../useResizeObserver";
-
-import styles from "../App.css";
+import useResizeObserver from "../../useResizeObserver";
+import styles from "../../App.css";
 
 const TreeChart = ({ data }) => {
   const svgRef = useRef();
@@ -14,13 +13,13 @@ const TreeChart = ({ data }) => {
     children: [
       {
         name: "Agroforestry",
-        children: []
+        children: [],
       },
       {
         name: "No Agroforestry",
-        children: []
-      }
-    ]
+        children: [],
+      },
+    ],
   };
 
   function usePrevious(value) {
@@ -36,9 +35,9 @@ const TreeChart = ({ data }) => {
   const previouslyRenderedData = usePrevious(agroforestry);
 
   const width = 954;
-  const setData = data => {
+  const setData = (data) => {
     data &&
-      data.forEach(d =>
+      data.forEach((d) =>
         d.agroforestry === 1
           ? agroforestry.children[0].children.push(d)
           : agroforestry.children[1].children.push(d)
@@ -54,20 +53,20 @@ const TreeChart = ({ data }) => {
     root.dy = width / (root.height + 1);
     tree().nodeSize([root.dx, root.dy])(root);
     const linkGenerator = linkHorizontal()
-      .x(node => node.y)
-      .y(node => node.x);
+      .x((node) => node.y)
+      .y((node) => node.x);
 
     svg
       .selectAll(".node")
       .data(root.descendants())
-      .join(enter => enter.append("circle").attr("opacity", 0))
+      .join((enter) => enter.append("circle").attr("opacity", 0))
       .attr("class", "node")
-      .attr("cx", node => node.y)
-      .attr("cy", node => node.x)
+      .attr("cx", (node) => node.y)
+      .attr("cy", (node) => node.x)
       .attr("r", 2)
       .transition()
       .duration(500)
-      .delay(node => node.depth * 500)
+      .delay((node) => node.depth * 500)
       .attr("opacity", 1);
 
     // links
@@ -92,7 +91,7 @@ const TreeChart = ({ data }) => {
         })
         .transition()
         .duration(500)
-        .delay(link => link.source.depth * 500)
+        .delay((link) => link.source.depth * 500)
         .attr("stroke-dashoffset", 0);
     }
 
@@ -102,11 +101,11 @@ const TreeChart = ({ data }) => {
       .data(root.descendants())
       .join("text")
       .attr("class", "label")
-      .text(node => (node.children ? node.data.name : node.data.locations))
-      .attr("text-anchor", node => (node.children ? "middle" : "back"))
-      .attr("font-size", node => (node.children ? 15 : 13))
-      .attr("x", node => (node.children ? node.y : node.y + 5))
-      .attr("y", node => (node.children ? node.x - 12 : node.x + 3));
+      .text((node) => (node.children ? node.data.name : node.data.locations))
+      .attr("text-anchor", (node) => (node.children ? "middle" : "back"))
+      .attr("font-size", (node) => (node.children ? 15 : 13))
+      .attr("x", (node) => (node.children ? node.y : node.y + 5))
+      .attr("y", (node) => (node.children ? node.x - 12 : node.x + 3));
   }, [data, agroforestry, dimensions, previouslyRenderedData]);
   return (
     <div className={styles.root} ref={wrapperRef}>

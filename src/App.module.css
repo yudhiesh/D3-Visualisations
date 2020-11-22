@@ -24,8 +24,8 @@ select {
 
 .buttonOrg {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 20px;
   display: inline-block;
   cursor: pointer;
 }

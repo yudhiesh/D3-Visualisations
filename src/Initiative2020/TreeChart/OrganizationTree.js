@@ -8,7 +8,7 @@ import {
   descending,
   cluster,
 } from "d3";
-import useResizeObserver from "../useResizeObserver";
+import useResizeObserver from "../../useResizeObserver";
 
 import styles from "../TreeChart/OrganizationTree.module.css";
 
@@ -179,7 +179,7 @@ const OrganizationTreeChart = ({ data }) => {
       .attr("font-size", (d) => (d.children ? 15 : 14));
   }, [data, partnerOrganization, dimensions, previouslyRenderedData]);
   return (
-    <div className={styles.root2} ref={wrapperRef}>
+    <div className={styles.root3} ref={wrapperRef}>
       <svg ref={svgRef}></svg>
     </div>
   );
