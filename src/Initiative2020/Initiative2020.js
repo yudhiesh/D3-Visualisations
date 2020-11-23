@@ -21,7 +21,7 @@ const Initiative2020 = () => {
         <option value="agroforestry">Agroforestry</option>
         <option value="partners">Partners</option>
         <option value="reforestation">Reforestation</option>
-        <option value="funding">Funding</option>
+        <option value="funding">Investment Type & Funding</option>
         <option value="silvopasture">Silvopasture</option>
         <option value="lca">Low Carbon Agriculture</option>
         <option value="adad">Avoided Degradation and Deforestation</option>

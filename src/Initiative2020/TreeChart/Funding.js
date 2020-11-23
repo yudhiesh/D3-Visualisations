@@ -26,7 +26,7 @@ const Funding = ({ data }) => {
   };
 
   const investmentByLocationData = {
-    name: "Investment Type",
+    name: "Investments",
     children: [
       {
         name: "Private",
@@ -65,8 +65,8 @@ const Funding = ({ data }) => {
         descending(a.height, b.height) || ascending(a.data.name, b.data.name)
     );
 
-    root.dx = 18;
-    root.dy = width / (root.height * 0.6);
+    root.dx = 16;
+    root.dy = width / (root.height * 0.7);
     cluster().nodeSize([root.dx, root.dy])(root);
 
     const linkGenerator = linkHorizontal()
