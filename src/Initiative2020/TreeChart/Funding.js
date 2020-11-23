@@ -39,22 +39,23 @@ const Funding = ({ data }) => {
     ],
   };
   const investmentByLocation = (data) => {
-    const investmentData = data.forEach((d) =>
+    const fundingData = data.forEach((d) =>
       d.investment_type === "Private"
         ? investmentByLocationData.children[0].children.push({
-            locations: d.locations,
+            name: d.locations,
+            children: [{ funding: `$${d.funding}` }],
           })
         : investmentByLocationData.children[1].children.push({
-            locations: d.locations,
+            name: d.locations,
+            children: [{ funding: `$${d.funding}` }],
           })
     );
-    return investmentData;
+    return fundingData;
   };
   const previouslyRenderedData = usePrevious(investmentByLocationData);
 
   useEffect(() => {
     investmentByLocation(data);
-    console.log(investmentByLocationData);
     const svg = select(svgRef.current);
 
     if (!dimensions) return;
@@ -127,7 +128,7 @@ const Funding = ({ data }) => {
       .attr("y", (d) => d.x)
       .attr("dy", "0.31em")
       .attr("dx", (d) => (d.children ? -6 : 6))
-      .text((d) => (d.children ? d.data.name : d.data.locations))
+      .text((d) => (d.children ? d.data.name : d.data.funding))
       .attr("text-anchor", (d) => (d.children ? "end" : "start"))
       .attr("font-size", (d) => (d.children ? 15 : 14));
   }, [data, investmentByLocationData, dimensions, previouslyRenderedData]);
