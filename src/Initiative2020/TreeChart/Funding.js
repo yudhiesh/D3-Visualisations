@@ -65,8 +65,8 @@ const Funding = ({ data }) => {
         descending(a.height, b.height) || ascending(a.data.name, b.data.name)
     );
 
-    root.dx = 12;
-    root.dy = width / (root.height + 1);
+    root.dx = 18;
+    root.dy = width / (root.height * 0.6);
     cluster().nodeSize([root.dx, root.dy])(root);
 
     const linkGenerator = linkHorizontal()
@@ -80,8 +80,10 @@ const Funding = ({ data }) => {
         enter
           .append("circle")
           .attr("fill", (d) => (d.children ? "#555" : "#999"))
+          .attr("r", function(d) {
+            return d.value * 10;
+          })
       )
-      .attr("r", 2.5)
       .attr("class", "node")
       .attr("cx", (node) => node.y)
       .attr("cy", (node) => node.x)
