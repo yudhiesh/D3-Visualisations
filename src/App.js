@@ -5,7 +5,7 @@ import AFR100 from "./Afr100/afr100";
 import stylesApp from "./App.module.css";
 
 function App() {
-  const [page, setPage] = useState();
+  const [page, setPage] = useState("initiative");
   return (
     <div>
       <div className={stylesApp.buttonOrg}>

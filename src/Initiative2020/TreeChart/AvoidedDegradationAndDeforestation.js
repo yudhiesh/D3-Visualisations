@@ -63,6 +63,10 @@ const AvoidedDegradationAndDeforestation = ({ data }) => {
     AvoidedDegradationAndDeforestationByLocation(data);
     const svg = select(svgRef.current);
 
+    const JSON_DATA = JSON.stringify(
+      AvoidedDegradationAndDeforestationByLocationData
+    );
+    console.log(JSON_DATA);
     if (!dimensions) return;
 
     const root = hierarchy(

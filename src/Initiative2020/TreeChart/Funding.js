@@ -53,11 +53,9 @@ const Funding = ({ data }) => {
     return fundingData;
   };
   const previouslyRenderedData = usePrevious(investmentByLocationData);
-
   useEffect(() => {
     investmentByLocation(data);
     const svg = select(svgRef.current);
-
     if (!dimensions) return;
 
     const root = hierarchy(investmentByLocationData).sort(

@@ -1,0 +1,78 @@
+{
+  "name": "Avoided Degradation and Deforestation",
+  "children": [
+    {
+      "name": "Avoided",
+      "children": [
+        { "locations": "Corrientes Province, Argentina" },
+        { "locations": "Ixiamas, Bolivia" },
+        { "locations": "Vale do Ribeira, São Paulo State, Brazil" },
+        { "locations": "Mato Grosso and Mato Grosso do Sul, Brazil" },
+        { "locations": "Patagonia" },
+        { "locations": "Caquetá and Guaviare Departments, Colombia" },
+        { "locations": "La Jagua de Ibirico, Cesar, Colombia" },
+        { "locations": "Nandayure, Guanacaste, Costa Rica" },
+        { "locations": "Sierra de Bahoruco  and Sierra Septentrional" },
+        { "locations": "Nagua, Dominican Republic" },
+        {
+          "locations": "Antisana, Canandé, Narupa, Tapichalaca, Buenaventura, and Yungilla Reserves"
+        },
+        { "locations": "Multiple locations, Ecuador" },
+        { "locations": "Sucumbios Province, Ecuador" },
+        { "locations": "Zamora Chinchipe Province, Ecuador" },
+        { "locations": "Morona Santiago Province, Ecuador" },
+        { "locations": "Quevedo, Los Rios, Ecuador" },
+        { "locations": "Izabal" },
+        { "locations": "Izabal, Guatemala" },
+        { "locations": "Petén, Guatemala" },
+        { "locations": "Alta Verapaz, Guatemala" },
+        {
+          "locations": "Jinotega (El Jaguar – Volcan Yali Golden-winged Warbler Focal Area)"
+        },
+        { "locations": "Panama" },
+        { "locations": "Cuango, Panama" },
+        {
+          "locations": "The Tambopata National Reserve, Madre de Dios region, Peru"
+        },
+        { "locations": "Loreto and Ucayali, Peru" },
+        { "locations": "Ucayali, Peru" },
+        { "locations": "San Martín, Peru" },
+        { "locations": "Huánuco, Peru" }
+      ]
+    },
+    {
+      "name": "Did Not Avoid",
+      "children": [
+        { "locations": "Stann Creek District, Belize" },
+        { "locations": "Mato Grosso, Brazil" },
+        { "locations": "Alto Paranaíba, Minas Gerais State, Brazil" },
+        { "locations": "Tocantinópolis, Tocantins State, Brazil" },
+        { "locations": "Bahia, Brazil" },
+        { "locations": "Garça, Sao Paulo State, Brazil" },
+        { "locations": "Valença, Bahia state, Brazil" },
+        { "locations": "Santander Department, San Vincente de Chucurri" },
+        { "locations": "Huila Department, Colombia" },
+        { "locations": "Cimitarra and Tierralta, Colombia" },
+        { "locations": "Quevedo, Cotopaxi, Ecuador" },
+        { "locations": "Pomeroon-Supenaam, Guyana" },
+        {
+          "locations": "State of Chihuahua, Valles Centrales Grassland Priority Conservation Area"
+        },
+        { "locations": "Multiple regions, Mexico" },
+        { "locations": "Morelia, Michoacán State, Mexico" },
+        {
+          "locations": "Monarch Butterfly Biosphere Reserve, Michoacán, Mexico"
+        },
+        { "locations": "Lake Texcoco, Mexico" },
+        { "locations": "Ejido Carmen Serdán, Baja California, Mexico" },
+        { "locations": "Matagalpa Department, Nicaragua" },
+        { "locations": "Chiriquí, Panama" },
+        { "locations": "Several locations in Paraguay" },
+        { "locations": "Alta Paraguay, Paraguay" },
+        { "locations": "Amazonas and Cajamarca regions, Peru" },
+        { "locations": "Huánuco, San Martín and Ucayali, Peru" },
+        { "locations": "Ucayali, Peru" }
+      ]
+    }
+  ]
+}

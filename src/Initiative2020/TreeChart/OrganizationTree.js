@@ -100,7 +100,8 @@ const OrganizationTreeChart = ({ data }) => {
 
   useEffect(() => {
     partnerOrganizationMutation(data);
-    console.log(partnerOrganization);
+    const JSON_DATA = JSON.stringify(partnerOrganization);
+    console.log(JSON_DATA);
 
     const svg = select(svgRef.current);
 

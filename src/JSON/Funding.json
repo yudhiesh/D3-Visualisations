@@ -1,0 +1,191 @@
+{
+  "name": "Investments",
+  "children": [
+    {
+      "name": "Private",
+      "children": [
+        {
+          "name": "Corrientes Province, Argentina",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Stann Creek District, Belize",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Mato Grosso, Brazil",
+          "children": [{ "funding": "$14858057.5" }]
+        },
+        {
+          "name": "Vale do Ribeira, São Paulo State, Brazil",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Alto Paranaíba, Minas Gerais State, Brazil",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Tocantinópolis, Tocantins State, Brazil",
+          "children": [{ "funding": "$2200000" }]
+        },
+        { "name": "Bahia, Brazil", "children": [{ "funding": "$0" }] },
+        {
+          "name": "Garça, Sao Paulo State, Brazil",
+          "children": [{ "funding": "$55000" }]
+        },
+        {
+          "name": "Valença, Bahia state, Brazil",
+          "children": [{ "funding": "$700000" }]
+        },
+        {
+          "name": "Mato Grosso and Mato Grosso do Sul, Brazil",
+          "children": [{ "funding": "$0" }]
+        },
+        { "name": "Patagonia", "children": [{ "funding": "$0" }] },
+        {
+          "name": "Santander Department, San Vincente de Chucurri",
+          "children": [{ "funding": "$282000" }]
+        },
+        {
+          "name": "Huila Department, Colombia",
+          "children": [{ "funding": "$19300000" }]
+        },
+        {
+          "name": "Caquetá and Guaviare Departments, Colombia",
+          "children": [{ "funding": "$2000000" }]
+        },
+        {
+          "name": "La Jagua de Ibirico, Cesar, Colombia",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Cimitarra and Tierralta, Colombia",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Nandayure, Guanacaste, Costa Rica",
+          "children": [{ "funding": "$2000000" }]
+        },
+        {
+          "name": "Sierra de Bahoruco  and Sierra Septentrional",
+          "children": [{ "funding": "$1065000" }]
+        },
+        {
+          "name": "Nagua, Dominican Republic",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Antisana, Canandé, Narupa, Tapichalaca, Buenaventura, and Yungilla Reserves",
+          "children": [{ "funding": "$350000" }]
+        },
+        {
+          "name": "Sucumbios Province, Ecuador",
+          "children": [{ "funding": "$65580" }]
+        },
+        {
+          "name": "Zamora Chinchipe Province, Ecuador",
+          "children": [{ "funding": "$97500" }]
+        },
+        {
+          "name": "Morona Santiago Province, Ecuador",
+          "children": [{ "funding": "$59225" }]
+        },
+        {
+          "name": "Quevedo, Cotopaxi, Ecuador",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Quevedo, Los Rios, Ecuador",
+          "children": [{ "funding": "$0" }]
+        },
+        { "name": "Izabal", "children": [{ "funding": "$1500000" }] },
+        {
+          "name": "Izabal, Guatemala",
+          "children": [{ "funding": "$11100000" }]
+        },
+        { "name": "Petén, Guatemala", "children": [{ "funding": "$550000" }] },
+        {
+          "name": "Alta Verapaz, Guatemala",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Pomeroon-Supenaam, Guyana",
+          "children": [{ "funding": "$5000000" }]
+        },
+        {
+          "name": "State of Chihuahua, Valles Centrales Grassland Priority Conservation Area",
+          "children": [{ "funding": "$650000" }]
+        },
+        {
+          "name": "Morelia, Michoacán State, Mexico",
+          "children": [{ "funding": "$12000000" }]
+        },
+        {
+          "name": "Monarch Butterfly Biosphere Reserve, Michoacán, Mexico",
+          "children": [{ "funding": "$150000" }]
+        },
+        {
+          "name": "Lake Texcoco, Mexico",
+          "children": [{ "funding": "$400000" }]
+        },
+        {
+          "name": "Ejido Carmen Serdán, Baja California, Mexico",
+          "children": [{ "funding": "$450000" }]
+        },
+        {
+          "name": "Jinotega (El Jaguar – Volcan Yali Golden-winged Warbler Focal Area)",
+          "children": [{ "funding": "$250000" }]
+        },
+        {
+          "name": "Matagalpa Department, Nicaragua",
+          "children": [{ "funding": "$0" }]
+        },
+        { "name": "Cuango, Panama", "children": [{ "funding": "$9500000" }] },
+        { "name": "Chiriquí, Panama", "children": [{ "funding": "$0" }] },
+        {
+          "name": "Several locations in Paraguay",
+          "children": [{ "funding": "$15000000" }]
+        },
+        {
+          "name": "Alta Paraguay, Paraguay",
+          "children": [{ "funding": "$0" }]
+        },
+        {
+          "name": "Amazonas and Cajamarca regions, Peru",
+          "children": [{ "funding": "$10000000" }]
+        },
+        {
+          "name": "The Tambopata National Reserve, Madre de Dios region, Peru",
+          "children": [{ "funding": "$12000000" }]
+        },
+        {
+          "name": "Loreto and Ucayali, Peru",
+          "children": [{ "funding": "$1000000" }]
+        },
+        { "name": "Ucayali, Peru", "children": [{ "funding": "$9660000" }] },
+        { "name": "Ucayali, Peru", "children": [{ "funding": "$0" }] },
+        { "name": "San Martín, Peru", "children": [{ "funding": "$0" }] },
+        { "name": "Huánuco, Peru", "children": [{ "funding": "$0" }] }
+      ]
+    },
+    {
+      "name": "Government-led",
+      "children": [
+        { "name": "Ixiamas, Bolivia", "children": [{ "funding": "$0" }] },
+        {
+          "name": "Multiple locations, Ecuador",
+          "children": [{ "funding": "$61000000" }]
+        },
+        {
+          "name": "Multiple regions, Mexico",
+          "children": [{ "funding": "$591000000" }]
+        },
+        { "name": "Panama", "children": [{ "funding": "$0" }] },
+        {
+          "name": "Huánuco, San Martín and Ucayali, Peru",
+          "children": [{ "funding": "$36000000" }]
+        }
+      ]
+    }
+  ]
+}

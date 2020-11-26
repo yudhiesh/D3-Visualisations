@@ -1,0 +1,168 @@
+{
+  "name": "Partner Organizations",
+  "children": [
+    {
+      "name": "Partner",
+      "children": [
+        {
+          "name": "Moringa",
+          "children": [
+            { "locations": "Stann Creek District, Belize" },
+            { "locations": "Vale do Ribeira, São Paulo State, Brazil" }
+          ]
+        },
+        {
+          "name": "AAF",
+          "children": [
+            { "locations": "Ixiamas, Bolivia" },
+            { "locations": "Caquetá and Guaviare Departments, Colombia" },
+            { "locations": "Sucumbios Province, Ecuador" },
+            { "locations": "Zamora Chinchipe Province, Ecuador" },
+            { "locations": "Loreto and Ucayali, Peru" },
+            { "locations": "Huánuco, Peru" }
+          ]
+        },
+        {
+          "name": "AF",
+          "children": [
+            { "locations": "Alto Paranaíba, Minas Gerais State, Brazil" },
+            { "locations": "Izabal, Guatemala" },
+            {
+              "locations": "The Tambopata National Reserve, Madre de Dios region, Peru"
+            },
+            { "locations": "Ucayali, Peru" }
+          ]
+        },
+        {
+          "name": "Kaeté Investimentos",
+          "children": [
+            { "locations": "Tocantinópolis, Tocantins State, Brazil" }
+          ]
+        },
+        {
+          "name": "Symbiosis Investimentos",
+          "children": [{ "locations": "Bahia, Brazil" }]
+        },
+        {
+          "name": "WRI",
+          "children": [
+            { "locations": "Garça, Sao Paulo State, Brazil" },
+            { "locations": "Valença, Bahia state, Brazil" }
+          ]
+        },
+        {
+          "name": "ISA",
+          "children": [
+            { "locations": "Mato Grosso and Mato Grosso do Sul, Brazil" },
+            { "locations": "Cimitarra and Tierralta, Colombia" },
+            { "locations": "San Martín, Peru" }
+          ]
+        },
+        {
+          "name": "ABC",
+          "children": [
+            { "locations": "Santander Department, San Vincente de Chucurri" },
+            { "locations": "Sierra de Bahoruco  and Sierra Septentrional" },
+            {
+              "locations": "Antisana, Canandé, Narupa, Tapichalaca, Buenaventura, and Yungilla Reserves"
+            },
+            { "locations": "Izabal" },
+            {
+              "locations": "State of Chihuahua, Valles Centrales Grassland Priority Conservation Area"
+            },
+            {
+              "locations": "Jinotega (El Jaguar – Volcan Yali Golden-winged Warbler Focal Area)"
+            }
+          ]
+        },
+        {
+          "name": "12Tree",
+          "children": [
+            { "locations": "La Jagua de Ibirico, Cesar, Colombia" },
+            { "locations": "Nagua, Dominican Republic" },
+            { "locations": "Quevedo, Cotopaxi, Ecuador" },
+            { "locations": "Quevedo, Los Rios, Ecuador" },
+            { "locations": "Chiriquí, Panama" }
+          ]
+        },
+        {
+          "name": "FCCF",
+          "children": [
+            { "locations": "Nandayure, Guanacaste, Costa Rica" },
+            { "locations": "Petén, Guatemala" }
+          ]
+        },
+        {
+          "name": "Andes Amazon Fund",
+          "children": [{ "locations": "Morona Santiago Province, Ecuador" }]
+        },
+        {
+          "name": "12Tree Fund",
+          "children": [{ "locations": "Alta Verapaz, Guatemala" }]
+        },
+        {
+          "name": "Pomeroon",
+          "children": [{ "locations": "Pomeroon-Supenaam, Guyana" }]
+        },
+        {
+          "name": "Pasticultores del Desierto",
+          "children": [
+            {
+              "locations": "State of Chihuahua, Valles Centrales Grassland Priority Conservation Area"
+            }
+          ]
+        },
+        {
+          "name": "LLC",
+          "children": [
+            {
+              "locations": "Monarch Butterfly Biosphere Reserve, Michoacán, Mexico"
+            },
+            { "locations": "Lake Texcoco, Mexico" },
+            { "locations": "Ejido Carmen Serdán, Baja California, Mexico" }
+          ]
+        },
+        {
+          "name": "Moring",
+          "children": [{ "locations": "Matagalpa Department, Nicaragua" }]
+        },
+        {
+          "name": "CIRAD",
+          "children": [{ "locations": "Matagalpa Department, Nicaragua" }]
+        },
+        { "name": "CATIE", "children": [{ "locations": "Panama" }] },
+        {
+          "name": "12Tree Finance",
+          "children": [{ "locations": "Cuango, Panama" }]
+        },
+        {
+          "name": "UNIQUE Forestry and Land Use",
+          "children": [{ "locations": "Several locations in Paraguay" }]
+        },
+        {
+          "name": "Urapi Sustainable Land Use",
+          "children": [{ "locations": "Amazonas and Cajamarca regions, Peru" }]
+        },
+        {
+          "name": "CARANA",
+          "children": [{ "locations": "Huánuco, San Martín and Ucayali, Peru" }]
+        },
+        { "name": "CIMA", "children": [{ "locations": "Ucayali, Peru" }] },
+        { "name": "AIDER", "children": [{ "locations": "Ucayali, Peru" }] }
+      ]
+    },
+    {
+      "name": "No Partner",
+      "children": [
+        { "locations": "Corrientes Province, Argentina" },
+        { "locations": "Mato Grosso, Brazil" },
+        { "locations": "Patagonia" },
+        { "locations": "Huila Department, Colombia" },
+        { "locations": "Multiple locations, Ecuador" },
+        { "locations": "Multiple regions, Mexico" },
+        { "locations": "Morelia, Michoacán State, Mexico" },
+        { "locations": "Alta Paraguay, Paraguay" }
+      ]
+    }
+  ]
+}
