@@ -57,8 +57,6 @@ const LowCarbonAgriculture = ({ data }) => {
 
   useEffect(() => {
     lowCarbonAgricultureByLocation(data);
-    const JSON_DATA = JSON.stringify(lowCarbonAgricultureByLocationData);
-    console.log(JSON_DATA);
     const svg = select(svgRef.current);
 
     if (!dimensions) return;
