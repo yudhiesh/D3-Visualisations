@@ -28,72 +28,46 @@ const FinancialPartners = ({ data }) => {
     return ref.current;
   };
 
-  const partnerOrganization = {
+  const financialPartnersData = {
     name: "Financial Partners",
     children: [],
   };
-  const partnerOrganizationMutation = (data) => {
-    const uniqueOrgs = uniquePartnerList(data);
-
-    // add the country with no partnerOrganizations to the no partner obj
-    // swap country for locations if looking for locations
-    data.forEach((d) =>
-      d.partner_organization.length > 0
-        ? null
-        : partnerOrganization.children[1].children.push({
-            locations: d.locations,
-          })
+  const getUniqueOrganizations = (data) => {
+    const orgList = [];
+    data.forEach((d) => orgList.push(d["Name"]));
+    // flatten a nested array into a single array
+    const mergedArray = [].concat(...orgList);
+    // get the unique values from the array
+    const uniqueOrgs = [...new Set(mergedArray)];
+    uniqueOrgs.forEach((u) =>
+      financialPartnersData.children.push({ name: u, children: [] })
     );
-    // add each org and a list of children to the main partnerOrganization obj
-    uniqueOrgs.forEach((o) =>
-      partnerOrganization.children[0].children.push({ name: o, children: [] })
-    );
-
-    const uniqueOrgsList = partnerOrganization.children[0].children;
-
-    // Loops over the data
-    // finds the organization and appends the country to the uniqueOrgsList
+  };
+  const uniqueOrgs = getUniqueOrganizations(data);
+  const focusCountriesData = (data) => {
     for (let i = 0; i < data.length; i++) {
-      const partOrg = data[i]["partner_organization"];
-      const locations = data[i]["locations"];
-      // const country = data[i]["country"];
-      for (let i = 0; i < partOrg.length; i++) {
-        const eachPart = partOrg[i];
-        for (let i = 0; i < uniqueOrgsList.length; i++) {
-          if (eachPart === uniqueOrgsList[i]["name"]) {
-            uniqueOrgsList[i]["children"].push({
-              locations: locations,
+      const orgName = data[i]["Name"];
+      const focusCountries = data[i]["Focus Countries"];
+      for (let j = 0; j < financialPartnersData.children.length; j++) {
+        if (orgName === financialPartnersData.children[j]["name"]) {
+          for (let k = 0; k < focusCountries.length; k++) {
+            financialPartnersData.children[j].children.push({
+              locations: focusCountries[k],
             });
           }
         }
       }
     }
   };
-
-  const uniquePartnerList = (data) => {
-    const orgList = [];
-    data.forEach((d) =>
-      d.partner_organization.length > 0
-        ? orgList.push(d.partner_organization)
-        : null
-    );
-    // flatten a nested array into a single array
-    const mergedArray = [].concat(...orgList);
-    // get the unique values from the array
-    const uniqueOrgs = [...new Set(mergedArray)];
-    return uniqueOrgs;
-  };
-
-  const previouslyRenderedData = usePrevious(partnerOrganization);
-
+  const previouslyRenderedData = usePrevious(financialPartnersData);
   useEffect(() => {
-    partnerOrganizationMutation(data);
+    focusCountriesData(data);
 
     const svg = select(svgRef.current);
 
     if (!dimensions) return;
 
-    const root = hierarchy(partnerOrganization).sort(
+    const root = hierarchy(financialPartnersData).sort(
       (a, b) =>
         descending(a.height, b.height) || ascending(a.data.name, b.data.name)
     );
@@ -164,7 +138,7 @@ const FinancialPartners = ({ data }) => {
       .text((d) => (d.children ? d.data.name : d.data.locations))
       .attr("text-anchor", (d) => (d.children ? "end" : "start"))
       .attr("font-size", (d) => (d.children ? 15 : 14));
-  }, [data, partnerOrganization, dimensions, previouslyRenderedData]);
+  }, [data, financialPartnersData, dimensions, previouslyRenderedData]);
   return (
     <div className={styles.root3} ref={wrapperRef}>
       <svg ref={svgRef}></svg>

@@ -1,9 +1,11 @@
 import React from "react";
+import partnersData from "../data/cities4forest_partners_to_merge_nlp.json";
+import Partners from "./Partners";
 
 const Cities = () => {
   return (
     <div>
-      <h1>Cities4Forests</h1>
+      <Partners data={partnersData} />
     </div>
   );
 };

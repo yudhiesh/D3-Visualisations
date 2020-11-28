@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useEffect, memo, useMemo } from "react";
 import {
   select,
   hierarchy,
@@ -8,14 +8,12 @@ import {
   descending,
   cluster,
 } from "d3";
-
 import useResizeObserver from "../useResizeObserver";
-
-import styles from "./TechnicalPartners.module.css";
+import styles from "./Partners.module.css";
 
 const width = 954;
 
-const TechnicalPartners = ({ data }) => {
+const Partners = ({ data }) => {
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
@@ -27,54 +25,45 @@ const TechnicalPartners = ({ data }) => {
     });
     return ref.current;
   };
-  const technicalPartnersData = {
-    name: "Technical Partners",
-    children: [],
+  const PartnerOrganizations = {
+    name: "Partner Organizations",
+    children: [
+      {
+        name: "Technical",
+        children: [],
+      },
+      {
+        name: "Financial",
+        children: [],
+      },
+    ],
   };
-  const getUniqueOrganizations = (data) => {
-    const orgList = [];
-    data.forEach((d) => orgList.push(d["Name"]));
-    // flatten a nested array into a single array
-    const mergedArray = [].concat(...orgList);
-    // get the unique values from the array
-    const uniqueOrgs = [...new Set(mergedArray)];
-    uniqueOrgs.forEach((u) =>
-      technicalPartnersData.children.push({ name: u, children: [] })
+  const getUniqueOrgs = (data) => {
+    data.forEach((d) =>
+      d.partner_classification === "Technical"
+        ? PartnerOrganizations.children[0].children.push({
+            org: d.partner_name,
+          })
+        : PartnerOrganizations.children[1].children.push({
+            org: d.partner_name,
+          })
     );
   };
-  getUniqueOrganizations(data);
-  const focusCountriesData = (data) => {
-    for (let i = 0; i < data.length; i++) {
-      const orgName = data[i]["Name"];
-      const focusCountries = data[i]["Focus Countries"];
-      for (let j = 0; j < technicalPartnersData.children.length; j++) {
-        if (orgName === technicalPartnersData.children[j]["name"]) {
-          for (let k = 0; k < focusCountries.length; k++) {
-            technicalPartnersData.children[j].children.push({
-              locations: focusCountries[k],
-            });
-          }
-        }
-      }
-    }
-  };
+  const previouslyRenderedData = usePrevious(PartnerOrganizations);
 
-  const previouslyRenderedData = usePrevious(technicalPartnersData);
   useEffect(() => {
-    focusCountriesData(data);
-    console.log(technicalPartnersData);
-
+    getUniqueOrgs(data);
     const svg = select(svgRef.current);
 
     if (!dimensions) return;
 
-    const root = hierarchy(technicalPartnersData).sort(
+    const root = hierarchy(PartnerOrganizations).sort(
       (a, b) =>
         descending(a.height, b.height) || ascending(a.data.name, b.data.name)
     );
 
-    root.dx = 15;
-    root.dy = width / (root.height + 0.5);
+    root.dx = 12;
+    root.dy = width / (root.height + 1);
     cluster().nodeSize([root.dx, root.dy])(root);
 
     const linkGenerator = linkHorizontal()
@@ -136,10 +125,10 @@ const TechnicalPartners = ({ data }) => {
       .attr("y", (d) => d.x)
       .attr("dy", "0.31em")
       .attr("dx", (d) => (d.children ? -6 : 6))
-      .text((d) => (d.children ? d.data.name : d.data.locations))
+      .text((d) => (d.children ? d.data.name : d.data.org))
       .attr("text-anchor", (d) => (d.children ? "end" : "start"))
       .attr("font-size", (d) => (d.children ? 15 : 14));
-  }, [data, technicalPartnersData, dimensions, previouslyRenderedData]);
+  }, [data, PartnerOrganizations, dimensions, previouslyRenderedData]);
   return (
     <div className={styles.root3} ref={wrapperRef}>
       <svg ref={svgRef}></svg>
@@ -147,4 +136,4 @@ const TechnicalPartners = ({ data }) => {
   );
 };
 
-export default TechnicalPartners;
+export default memo(Partners);
