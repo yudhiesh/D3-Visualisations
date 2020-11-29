@@ -62,7 +62,7 @@ const Funding = ({ data }) => {
       (a, b) =>
         descending(a.height, b.height) || ascending(a.data.name, b.data.name)
     );
-    root.dx = 9;
+    root.dx = 10;
     root.dy = width / (root.height * 0.95);
     cluster().nodeSize([root.dx, root.dy])(root);
 
