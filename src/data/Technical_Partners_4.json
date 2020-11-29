@@ -1,0 +1,105 @@
+[
+    {
+        "Name": "World Wide Fund for Nature (WWF)",
+        "Focus Countries": [
+            "Cameroon",
+            "Central African Republic",
+            "Democratic Republic of Congo",
+            "Kenya",
+            "Madagascar",
+            "Mozambique",
+            "Tanzania",
+            "Uganda"
+        ]
+    },
+    {
+        "Name": "African Union Development Agency (AUDA-NEPAD)",
+        "Focus Countries": [
+            "Benin",
+            "Burundi",
+            "Cameroon",
+            "Central African Republic",
+            "Cote d'Ivoire",
+            "Democratic Republic of Congo",
+            "Ethiopia",
+            "Ghana",
+            "Guinea",
+            "Kenya",
+            "Liberia",
+            "Madagascar",
+            "Malawi",
+            "Mozambique",
+            "Niger",
+            "Republic of Congo",
+            "Rwanda",
+            "Senegal",
+            "Tanzania",
+            "Togo ",
+            "Uganda"
+        ]
+    },
+    {
+        "Name": "Bioversity International",
+        "Focus Countries": [
+            "West and Central Africa",
+            "Benin",
+            "Burkina Faso",
+            "Cameroon",
+            "Congo",
+            "Congo DR",
+            "Cote d'Ivoire",
+            "Ghana",
+            "Mali",
+            "Nigeria"
+        ]
+    },
+    {
+        "Name": "Catholic Relief Services (CRS)",
+        "Focus Countries": [
+            "Benin",
+            "Burkina Faso",
+            "Burundi",
+            "Ethiopia",
+            "Kenya",
+            "Madagascar",
+            "Malawi",
+            "Mali",
+            "Niger"
+        ]
+    },
+
+    {
+        "Name": "Heinz Sielmann Stiftung",
+        "Focus Countries": ["Ethiopia", "Uganda"]
+    },
+    {
+        "Name": "International Center for Tropical Agriculture (CIAT)",
+        "Focus Countries": ["Ethiopia", "Ghana", "Kenya", "Malawi", "Namibia", "Tanzania"]
+    },
+    {
+        "Name": "International Tree Foundation",
+        "Focus Countries": [
+            "Benin",
+            "Burundi",
+            "Cameroon",
+            "Central African Republic",
+            "Cote d'Ivoire",
+            "Democratic Republic of Congo",
+            "Ethiopia",
+            "Ghana",
+            "Guinea",
+            "Kenya",
+            "Liberia",
+            "Madagascar",
+            "Malawi",
+            "Mozambique",
+            "Niger",
+            "Republic of Congo",
+            "Rwanda",
+            "Senegal",
+            "Tanzania",
+            "Togo ",
+            "Uganda"
+        ]
+    }
+]

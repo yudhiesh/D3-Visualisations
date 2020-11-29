@@ -1,0 +1,97 @@
+[
+        {
+                "Name": "CIRAD",
+                "Focus Countries": [
+                        "Cameroon",
+                        "Republic of Congo",
+                        "Democratic Republic of Congo",
+                        "Ethiopia",
+                        "Kenya"
+                ]
+        },
+        {
+                "Name": "Conservation International (CI)",
+                "Focus Countries": [
+                        "Cameroon",
+                        "Republic of Congo",
+                        "Democratic Republic of Congo",
+                        "Ethiopia",
+                        "Kenya"
+                ]
+        },
+        {
+                "Name": "Deutsche Gesellschaft f\u00fcr Internationale Zusammenarbeit (GIZ)",
+                "Focus Countries": ["Cameroon", "Ethiopia", "Madagascar", "Togo"]
+        },
+        {
+                "Name": "Ecoplanet Bamboo",
+                "Focus Countries": ["Ghana", "South Africa", "Rwanda"]
+        },
+        {
+                "Name": "EverGreening Alliance",
+                "Focus Countries": [
+                        "Botswana",
+                        "Burkinb Faso",
+                        "Burundi",
+                        "Chad",
+                        "Ethiopia",
+                        "Ghana",
+                        "Kenya",
+                        "Lesotho",
+                        "Madagascar",
+                        "Malawi",
+                        "Mali",
+                        "Namibia",
+                        "Niger",
+                        "Nigeria",
+                        "Rwanda",
+                        "Senegal",
+                        "Somalia",
+                        "Swaziland",
+                        "Tanzania",
+                        "Uganda",
+                        "Zambia",
+                        "Zimbabwe"
+                ]
+        },
+        {
+                "Name": "Food and Agriculture Organization of the United Nations (FAO)",
+                "Focus Countries": [
+                        "Benin",
+                        "Burundi",
+                        "Cameroon",
+                        "Central African Republic",
+                        "Cote d'Ivoire",
+                        "Democratic Republic of Congo",
+                        "Ethiopia",
+                        "Ghana",
+                        "Guinea",
+                        "Kenya",
+                        "Liberia",
+                        "Madagascar",
+                        "Malawi",
+                        "Mozambique",
+                        "Niger",
+                        "Republic of Congo",
+                        "Rwanda",
+                        "Senegal",
+                        "Tanzania",
+                        "Togo ",
+                        " Uganda"
+                ]
+        },
+        {
+                "Name": "Global Water Partnership Southern Africa",
+                "Focus Countries": [
+                        "Democratic Republic of the Congo",
+                        "Eswatini",
+                        "Malawi",
+                        "Madagascar",
+                        "Mozambique",
+                        "South Africa",
+                        "Tanzania",
+                        "Zambia ",
+                        "Zimbabwe"
+                ]
+        }
+]

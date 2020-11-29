@@ -1,0 +1,83 @@
+[
+  {
+    "Name": "United Nations Environment Programme (UNEP)",
+    "Focus Countries": [
+      "Benin",
+      "Burundi",
+      "Cameroon",
+      "Central African Republic",
+      "Cote d'Ivoire",
+      "Democratic Republic of Congo",
+      "Ethiopia",
+      "Ghana",
+      "Guinea",
+      "Kenya",
+      "Liberia",
+      "Madagascar",
+      "Malawi",
+      "Mozambique",
+      "Niger",
+      "Republic of Congo",
+      "Rwanda",
+      "Senegal",
+      "Tanzania",
+      "Togo ",
+      "Uganda"
+    ]
+  },
+  {
+    "Name": "UNESCO",
+    "Focus Countries": [
+      "Working in 701 sites in 124 countries, including 79 sites in 29 African countries"
+    ]
+  },
+  {
+    "Name": "UNIQUE Forestry and Land Use gmbh (UNIQUE)",
+    "Focus Countries": [
+      "Ethiopia",
+      "Kenya",
+      "Cameroon",
+      "Burkina Faso",
+      "Tanzania",
+      "Uganda",
+      "Zambia ",
+      "Mozambique"
+    ]
+  },
+  {
+    "Name": "WeForest",
+    "Focus Countries": ["Ethiopia", " Zambia"]
+  },
+  {
+    "Name": "World Agroforestry Center (ICRAF)",
+    "Focus Countries": ["Ethiopia", "Kenya", "Niger", "Rwanda", "Tanzania ", "Uganda"]
+  },
+  {
+    "Name": "World Vision",
+    "Focus Countries": [
+      "Ethiopia",
+      "Kenya",
+      "Rwanda",
+      "Somalia",
+      "South Sudan",
+      "Tanzania",
+      "Uganda",
+      "Central African Republic",
+      "Chad",
+      "Ghana",
+      "Niger",
+      "0DR Congo",
+      "Malawi",
+      "Mozambique ",
+      "South Africa"
+    ]
+  },
+  {
+    "Name": "Heinz Sielmann Stiftung",
+    "Focus Countries": ["Ethiopia", "Uganda"]
+  },
+  {
+    "Name": "International Center for Tropical Agriculture (CIAT)",
+    "Focus Countries": ["Ethiopia", "Ghana", "Kenya", "Malawi", "Namibia", "Tanzania"]
+  }
+]

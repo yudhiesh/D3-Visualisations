@@ -11,7 +11,7 @@ import {
 
 import useResizeObserver from "../useResizeObserver";
 
-import styles from "./TechnicalPartners.module.css";
+import styles from "./TechnicalPartners2.module.css";
 
 const width = 954;
 
