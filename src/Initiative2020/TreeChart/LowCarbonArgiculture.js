@@ -33,7 +33,7 @@ const LowCarbonAgriculture = ({ data }) => {
         children: [],
       },
       {
-        name: "Not Low Carbon Agriculture",
+        name: "No Low Carbon Agriculture",
         children: [],
       },
     ],
