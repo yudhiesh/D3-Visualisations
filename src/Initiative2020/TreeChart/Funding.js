@@ -11,7 +11,7 @@ import useResizeObserver from "../../useResizeObserver";
 
 import styles from "./Funding.module.css";
 
-const width = 954;
+const width = 1000;
 
 const Funding = ({ data }) => {
   const svgRef = useRef();
@@ -62,9 +62,8 @@ const Funding = ({ data }) => {
       (a, b) =>
         descending(a.height, b.height) || ascending(a.data.name, b.data.name)
     );
-
-    root.dx = 11;
-    root.dy = width / (root.height * 0.9);
+    root.dx = 9;
+    root.dy = width / (root.height * 0.95);
     cluster().nodeSize([root.dx, root.dy])(root);
 
     const linkGenerator = linkHorizontal()
