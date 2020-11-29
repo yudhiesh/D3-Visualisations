@@ -64,7 +64,7 @@ const Funding = ({ data }) => {
     );
 
     root.dx = 11;
-    root.dy = width / (root.height * 0.75);
+    root.dy = width / (root.height * 0.9);
     cluster().nodeSize([root.dx, root.dy])(root);
 
     const linkGenerator = linkHorizontal()
@@ -130,7 +130,7 @@ const Funding = ({ data }) => {
       .attr("dx", (d) => (d.children ? -6 : 6))
       .text((d) => (d.children ? d.data.name : d.data.funding))
       .attr("text-anchor", (d) => (d.children ? "end" : "start"))
-      .attr("font-size", (d) => (d.children ? 15 : 14));
+      .attr("font-size", (d) => (d.children ? 13 : 12));
   }, [data, investmentByLocationData, dimensions, previouslyRenderedData]);
   return (
     <div className={styles.root3} ref={wrapperRef}>

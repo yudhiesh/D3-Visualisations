@@ -71,8 +71,8 @@ const TechnicalPartners = ({ data }) => {
         descending(a.height, b.height) || ascending(a.data.name, b.data.name)
     );
 
-    root.dx = 14;
-    root.dy = width / (root.height + 0.5);
+    root.dx = 12;
+    root.dy = width / (root.height + 0.6);
     cluster().nodeSize([root.dx, root.dy])(root);
 
     const linkGenerator = linkHorizontal()
