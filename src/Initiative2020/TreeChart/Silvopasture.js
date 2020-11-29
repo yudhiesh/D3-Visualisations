@@ -9,7 +9,7 @@ import {
 } from "d3";
 import useResizeObserver from "../../useResizeObserver";
 
-import styles from "./Reforestation.module.css";
+import styles from "./Silvopasture.module.css";
 
 const width = 954;
 

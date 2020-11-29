@@ -63,8 +63,8 @@ const Funding = ({ data }) => {
         descending(a.height, b.height) || ascending(a.data.name, b.data.name)
     );
 
-    root.dx = 16;
-    root.dy = width / (root.height * 0.7);
+    root.dx = 11;
+    root.dy = width / (root.height * 0.75);
     cluster().nodeSize([root.dx, root.dy])(root);
 
     const linkGenerator = linkHorizontal()
